@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/15 18:55:58 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/16 08:48:45 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,22 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_display(a, a.top_stack);
-	ft_push_b(&a, &b);
-	ft_push_b(&a, &b);
+	// ft_push_b(&a, &b);
+	// ft_push_b(&a, &b);
 	printf("Stack A\n"); //To delete
+	ft_rotate_a(&a);
+	ft_display(a, a.top_stack);
 	// while (i < 5)
 	// {
 	// 	b.stack[i] = i;
 	// 	i++;
 	// }
-	ft_display(b, b.top_stack);
-	printf("Stack B\n"); //To delete
-	ft_push_a(&a, &b);
-	ft_display(a, a.top_stack);
+	// ft_display(b, b.top_stack);
+	// printf("Stack B\n"); //To delete
+	// ft_push_a(&a, &b);
+	// ft_display(a, a.top_stack);
+	// printf("Stack A\n"); //To delete
+	// ft_display(b, b.top_stack);
 	printf("Stack A\n"); //To delete
-	ft_display(b, b.top_stack);
-	printf("Stack B\n"); //To delete
 	return (0);
 }

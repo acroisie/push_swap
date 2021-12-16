@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 19:14:56 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/15 19:23:04 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/16 08:49:30 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,66 @@
 
 void	ft_rotate_a(t_stack *a)
 {
-	int	temp;
+	int	mem;
+	int	i;
+
+	i = a->top_stack;
+	mem = a->stack[a->top_stack];
+	while (i > 0)
+	{
+		a->stack[i] = a->stack[i - 1];
+		i--;
+	}
+	a->stack[i] = mem;
+}
+
+void	ft_rotate_b(t_stack *b)
+{
+	int	mem;
+	int	i;
+
+	i = b->top_stack;
+	mem = b->stack[b->top_stack];
+	while (i > 0)
+	{
+		b->stack[i] = b->stack[i - 1];
+		i--;
+	}
+	b->stack[i] = mem;
+}
+
+void	ft_rotate_all(t_stack *a, t_stack *b)
+{
+	ft_rotate_a(a);
+	ft_rotate_b(b);
+}
+
+void	ft_reverse_rotate_a(t_stack *a)
+{
+	int	mem;
 	int	i;
 
 	i = 0;
-	temp = a->stack[a->top_stack];
-	while ()
+	mem = a->stack[0];
+	while (i < a->stack[a->top_stack])
 	{
-		
+		a->stack[i] = a->stack[i + 1];
+		i++;
 	}
+	a->stack[i] = mem;
+}
+
+void	ft_reverse_rotate_b(t_stack *b)
+{
+	int	mem;
+	int	i;
+
+	i = 0;
+	mem = b->stack[0];
+	while (i < b->stack[b->top_stack])
+	{
+		b->stack[i] = b->stack[i + 1];
+		i++;
+	}
+	b->stack[i] = mem;
 }
