@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 19:14:56 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/16 08:49:30 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/16 18:05:21 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_rotate_a(t_stack *a)
 		i--;
 	}
 	a->stack[i] = mem;
+	write(1, "ra", 2);
 }
 
 void	ft_rotate_b(t_stack *b)
@@ -40,12 +41,14 @@ void	ft_rotate_b(t_stack *b)
 		i--;
 	}
 	b->stack[i] = mem;
+	write(1, "rb", 2);
 }
 
 void	ft_rotate_all(t_stack *a, t_stack *b)
 {
 	ft_rotate_a(a);
 	ft_rotate_b(b);
+	write(1, "rr", 2);
 }
 
 void	ft_reverse_rotate_a(t_stack *a)
@@ -61,6 +64,7 @@ void	ft_reverse_rotate_a(t_stack *a)
 		i++;
 	}
 	a->stack[i] = mem;
+	write(1, "rra", 3);
 }
 
 void	ft_reverse_rotate_b(t_stack *b)
@@ -76,4 +80,5 @@ void	ft_reverse_rotate_b(t_stack *b)
 		i++;
 	}
 	b->stack[i] = mem;
+	write(1, "rrb", 3);
 }

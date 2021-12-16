@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/16 08:50:30 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/16 11:28:10 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 #include <stdio.h> //To delete
 
 typedef struct s_stack
@@ -34,5 +35,7 @@ void	ft_rotate_a(t_stack *a);
 void	ft_rotate_b(t_stack *b);
 void	ft_reverse_rotate_a(t_stack *a);
 void	ft_reverse_rotate_b(t_stack *b);
+int		ft_display_error(void);
+int		ft_fill_stack(char *argv);
 
 #endif
