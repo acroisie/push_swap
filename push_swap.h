@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/20 14:37:53 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/20 17:47:51 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int		ft_display_error(void);
 void	ft_arg_parse_and_fill(t_stack *a, t_stack *b, int argc, char **argv);
 void	ft_fill_stack(t_stack *a, char **tab);
 void	ft_error_check(char **tab);
+char	*ft_join_args(char **argv);
 
 #endif

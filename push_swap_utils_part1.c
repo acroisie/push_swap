@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap_utils_part1.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:54:40 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/20 16:39:16 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/20 18:14:35 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_display_error(void)
-{
-	write(2, "Error\n", 6);
-	exit (0);
-}
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size)
 {
@@ -26,9 +20,26 @@ void	ft_init_stack(t_stack *a, t_stack *b, int size)
 	b->top_stack = -1;
 }
 
-void	ft_fill_stack(t_stack *a, char **tab)
-{
+// void	ft_fill_stack(t_stack *a, char **tab)
+// {
 	
+// }
+
+char	*ft_join_args(char **argv)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	argv++;
+	while (argv[i])
+	{
+		if (line)
+			free(line);
+		line = ft_strjoin(argv[i], " ");
+		i++;
+	}
+	return (line);
 }
 
 void	ft_error_check(char **tab)
@@ -52,26 +63,10 @@ void	ft_error_check(char **tab)
 
 void	ft_arg_parse_and_fill(t_stack *a, t_stack *b, int argc, char **argv)
 {
-	t_stack	stack;
+	char	*line;
 	char	**tab;
-	int		size;
 
-	size = 0;
-	if (argc == 2)
-	{
-		tab = ft_split(argv[1], ' ');
-		ft_error_check(tab);
-		while (tab[size])
-		{
-			size++;
-		}
-		ft_init_stack(a, b, size);
-		ft_fill_stack(a, tab);
-	}
-	else
-	{
-		ft_init_stack(a, b, (argc - 1));
-		argv++;
-		ft_fill_stack(a, argv);
-	}
+	line = ft_join_args(argv);
+	tab = ft_split(line, ' ');
+	ft_error_check(tab);
 }
