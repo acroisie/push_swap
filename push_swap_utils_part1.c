@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:54:40 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/20 18:14:35 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/21 19:08:02 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,24 @@ void	ft_init_stack(t_stack *a, t_stack *b, int size)
 	
 // }
 
-char	*ft_join_args(char **argv)
+char	*ft_join_args(char **argv, int argc)
 {
 	char	*line;
+	char	*temp;
 	int		i;
 
-	i = 0;
-	argv++;
-	while (argv[i])
+	i = 1;
+	line = "";
+	while (i < argc)
 	{
-		if (line)
-			free(line);
-		line = ft_strjoin(argv[i], " ");
+		temp = ft_strjoin(argv[i], " ");
+		line = ft_strjoin(temp, line);
 		i++;
 	}
 	return (line);
 }
 
-void	ft_error_check(char **tab)
+void	ft_error_check(char **tab) // Penser a checker le -
 {
 	int	i;
 	int	j;
@@ -53,7 +53,7 @@ void	ft_error_check(char **tab)
 		j = 0;
 		while (tab[i][j])
 		{
-			if (!ft_isdigit)
+			if (!ft_isdigit(tab[i][j]))
 				ft_display_error();
 			j++;
 		}
@@ -66,7 +66,9 @@ void	ft_arg_parse_and_fill(t_stack *a, t_stack *b, int argc, char **argv)
 	char	*line;
 	char	**tab;
 
-	line = ft_join_args(argv);
+	a = NULL; // To_Delete
+	b = NULL; // To_Delete
+	line = ft_join_args(argv, argc);
 	tab = ft_split(line, ' ');
 	ft_error_check(tab);
 }

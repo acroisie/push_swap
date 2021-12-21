@@ -6,9 +6,11 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:44:51 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/20 17:45:35 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/21 19:07:57 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	ft_display_error(void)
 {
