@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/21 18:33:21 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/22 14:00:08 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	ft_reverse_rotate_b(t_stack *b);
 int		ft_display_error(void);
 void	ft_arg_parse_and_fill(t_stack *a, t_stack *b, int argc, char **argv);
 void	ft_fill_stack(t_stack *a, char **tab);
-void	ft_error_check(char **tab);
+void	ft_errors_check(char **tab);
+void	ft_check_is_digit(char **tab);
+void	ft_check_duplicate(char **tab);
 char	*ft_join_args(char **argv, int argc);
 
 #endif

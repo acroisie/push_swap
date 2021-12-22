@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/21 18:30:57 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/22 07:21:55 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // 	size = a.top_stack;
 // 	while (size >= 0)
 // 	{
-// 		printf("%d\n", a.stack[size]);
+// 		printf("[%d]\n", a.stack[size]);
 // 		size--;
 // 	}
 // } // To delete before final push
