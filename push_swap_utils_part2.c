@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:44:51 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/22 14:02:27 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/22 14:15:04 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,16 @@ void	ft_check_duplicate(char **tab)
 	}
 }
 
-void	ft_errors_check(char **tab)
+int	ft_errors_check(char **tab)
 {
+	int	i;
+
+	i = 0;
 	ft_check_is_digit(tab);
 	ft_check_duplicate(tab);
+	while (tab[i])
+	{
+		i++;
+	}
+	return (i);
 }
