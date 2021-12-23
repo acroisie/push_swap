@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/22 14:20:02 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/23 13:03:15 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "limits.h"
 # include "libft/libft.h"
 #include <stdio.h> //To delete
 
@@ -43,5 +44,6 @@ int		ft_errors_check(char **tab);
 void	ft_check_is_digit(char **tab);
 void	ft_check_duplicate(char **tab);
 char	*ft_join_args(char **argv, int argc);
+void	ft_sort(t_stack *a, t_stack *b);
 
 #endif

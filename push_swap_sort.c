@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/23 07:40:13 by acroisie         ###   ########lyon.fr   */
+/*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
+/*   Updated: 2021/12/23 08:06:58 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void	ft_display(t_stack a) // To delete before final push
-// {
-// 	int	size;
-
-// 	size = a.top_stack;
-// 	while (size >= 0)
-// 	{
-// 		printf("[%d]\n", a.stack[size]);
-// 		size--;
-// 	}
-// } // To delete before final push
-
-int	main(int argc, char **argv)
+void	ft_sort(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
-
-	ft_arg_parse_and_fill(&a, &b, argc, argv);
-	ft_sort(&a, &b);
-	return (0);
+	
 }
