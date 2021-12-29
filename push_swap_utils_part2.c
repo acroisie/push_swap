@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:44:51 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/22 14:15:04 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/29 11:40:00 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,17 @@ int	ft_errors_check(char **tab)
 	ft_check_duplicate(tab);
 	while (tab[i])
 	{
+		ft_check_limits(tab[i]);
 		i++;
 	}
 	return (i);
+}
+
+void	ft_check_limits(char *nb)
+{
+	if (!ft_strncmp(nb, "0", ft_strlen(nb))
+		|| !ft_strncmp(nb, "-1", ft_strlen(nb)))
+		return ;
+	if (ft_atoi(nb) == 0 || ft_atoi(nb) == (-1))
+		ft_display_error();
 }
