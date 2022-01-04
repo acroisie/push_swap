@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/29 11:58:42 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/04 18:08:58 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ void	ft_check_duplicate(char **tab);
 void	ft_check_limits(char *nb);
 char	*ft_join_args(char **argv, int argc);
 void	ft_sort(t_stack *a, t_stack *b);
+int		ft_min_value(t_stack *a);
+int		ft_max_value(t_stack *a);
+int		*ft_init_index(int min_value, int max_value, int *size);
+int		ft_abs(int value);
+void	ft_search_position(t_stack *a, int *index, int size, int min_value);
+void	ft_read_and_sort(t_stack *a, t_stack *b, int *index, int size);
 
 #endif
