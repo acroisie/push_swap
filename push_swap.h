@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/29 10:20:41 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2021/12/29 11:58:42 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "libft/libft.h"
-#include "limits.h" //To delete
 #include <stdio.h> //To delete
 
 typedef struct s_stack
