@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/04 17:56:37 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/05 16:31:46 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,22 @@ int	ft_abs(int value)
 	if (value < 0)
 		return (value = value * -1);
 	return (value);
+}
+
+void	ft_range(t_index *index)
+{
+	int	range;
+
+	range = 0;
+	if (index->max_value > 0 && index->min_value < 0)
+	{
+		range = index->max_value + ft_abs(index->min_value);
+		index->size = range;
+		return ;
+	}
+	range = ft_abs(ft_abs(index->max_value) - ft_abs(index->min_value));
+	index->size = range;
+	return ;
 }
 
 int	ft_min_value(t_stack *a)
@@ -51,40 +67,16 @@ int	ft_max_value(t_stack *a)
 	return (max_value);
 }
 
-int	*ft_init_index(int min_value, int max_value, int *size)
+void	ft_init_index(t_index *index)
 {
-	int	*index;
 	int	j;
 
-	size = ft_abs(ft_abs(max_value) - ft_abs(min_value));
-	index = malloc((ft_abs(size) + 1) * sizeof(int));
+	ft_range(index);
+	index->index = malloc((ft_abs(index->size) + 1) * sizeof(int));
 	j = 0;
-	while (j < size)
+	while (j <= index->size)
 	{
-		index[j] = 0;
+		index->index[j] = 0;
 		j++;
-	}
-	return (index);
-}
-
-void	ft_search_position(t_stack *a, int *index, int size, int min_value)
-{
-	int	k;
-	int	j;
-
-	k = 0;
-	while (k < a->top_stack)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (a->stack[k] == (j + min_value))
-			{
-				index[j] = 1;
-				break ;
-			}
-			j++;
-		}
-		k++;
 	}
 }

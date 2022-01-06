@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/04 18:08:58 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/05 15:40:04 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_stack
 	int	*stack;
 	int	top_stack;
 }t_stack;
+
+typedef struct s_index
+{
+	int	*index;
+	int	min_value;
+	int	max_value;
+	int	size;
+}t_index;
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size);
 void	ft_swap_a(t_stack *a);
@@ -47,9 +55,11 @@ char	*ft_join_args(char **argv, int argc);
 void	ft_sort(t_stack *a, t_stack *b);
 int		ft_min_value(t_stack *a);
 int		ft_max_value(t_stack *a);
-int		*ft_init_index(int min_value, int max_value, int *size);
+void	ft_init_index(t_index *index);
 int		ft_abs(int value);
-void	ft_search_position(t_stack *a, int *index, int size, int min_value);
-void	ft_read_and_sort(t_stack *a, t_stack *b, int *index, int size);
+void	ft_range(t_index *index);
+void	ft_search_position(t_stack *a, t_index *index);
+void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index);
+void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b);
 
 #endif

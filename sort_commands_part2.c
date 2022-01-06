@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 19:14:56 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/22 15:44:15 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/06 09:39:26 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_reverse_rotate_a(t_stack *a)
 
 	i = 0;
 	mem = a->stack[0];
-	while (i < a->stack[a->top_stack])
+	while (i < a->top_stack)
 	{
 		a->stack[i] = a->stack[i + 1];
 		i++;
@@ -74,7 +74,7 @@ void	ft_reverse_rotate_b(t_stack *b)
 
 	i = 0;
 	mem = b->stack[0];
-	while (i < b->stack[b->top_stack])
+	while (i < b->top_stack)
 	{
 		b->stack[i] = b->stack[i + 1];
 		i++;
