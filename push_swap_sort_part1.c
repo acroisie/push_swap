@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/06 10:11:51 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/07 17:32:40 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,17 @@ void	ft_search_position(t_stack *a, t_index *index)
 void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 {
 	int	i;
+	int	k;
 
 	i = 0;
+	k = 0;
+	while ((a->stack[k] != (j + (index.min_value))))
+	{
+		k++;
+	}
 	while ((a->stack[a->top_stack] != (j + (index.min_value))))
 	{
-		if (j > (index.size / 2))
+		if (k > (index.size / 2))
 			ft_rotate_a(a);
 		else
 			ft_reverse_rotate_a(a);
