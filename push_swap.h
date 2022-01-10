@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/05 15:40:04 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/10 16:53:27 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_index
 	int	min_value;
 	int	max_value;
 	int	size;
+	int	max_range_pos;
 }t_index;
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size);

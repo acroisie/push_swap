@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/05 16:31:46 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/10 16:56:19 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	ft_init_index(t_index *index)
 
 	ft_range(index);
 	index->index = malloc((ft_abs(index->size) + 1) * sizeof(int));
+	index->max_range_pos = 0;
 	j = 0;
 	while (j <= index->size)
 	{
