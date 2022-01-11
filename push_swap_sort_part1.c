@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 16:22:19 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 18:23:52 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,6 @@ void	ft_search_position(t_stack *a, t_index *index)
 	}
 }
 
-void	ft_find_max_range(t_stack *a, t_index *index)
-{
-	t_range	range;
-
-	range.i = a->top_stack + 1;
-	range.range = 0;
-	while (range.i-- > 0)
-	{
-		range.j = range.i;
-		range.mem = 0;
-		range.ref = range.i;
-		while (range.j-- > 0)
-		{
-			if (a->stack[range.ref] < a->stack[range.j])
-			{
-				range.mem++;
-				range.ref = range.j;
-			}
-			if (range.mem >= range.range)
-			{
-				range.range = range.mem;
-				index->start_pos = range.i;
-				//index->end_pos = (range.i - range.range);
-				index->end_pos = range.j;
-			}
-		}
-	}
-}
-
 void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 {
 	int	i;
@@ -70,22 +41,18 @@ void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 
 	i = 0;
 	k = 0;
-	ft_find_max_range(a, &index); // ****
-	//dprintf(1,"deb=%d|fin=%d\n", index.start_pos, index.end_pos);
-	ft_push_max_range(a, b, index); // **** 
-	j = j + 0; //To delete
-	// while ((a->stack[k] != (j + (index.min_value))))
-	// {
-	// 	k++;
-	// }
-	// while ((a->stack[a->top_stack] != (j + (index.min_value))))
-	// {
-	// 	if (k > (index.size / 2))
-	// 		ft_rotate_a(a);
-	// 	else
-	// 		ft_reverse_rotate_a(a);
-	// }
-	// ft_push_b(a, b);
+	while ((a->stack[k] != (j + (index.min_value))))
+	{
+		k++;
+	}
+	while ((a->stack[a->top_stack] != (j + (index.min_value))))
+	{
+		if (k > (index.size / 2))
+			ft_rotate_a(a);
+		else
+			ft_reverse_rotate_a(a);
+	}
+	ft_push_b(a, b);
 }
 
 void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index)
@@ -93,19 +60,18 @@ void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index)
 	int	j;
 
 	j = 0;
-	ft_move_value(j, index, a, b); //To delete
-	// while (j <= index.size)
-	// {
-	// 	if (index.index[j] == 1)
-	// 	{
-	// 		ft_move_value(j, index, a, b);
-	// 	}
-	// 	j++;
-	// }
-	// while (b->top_stack != -1)
-	// {
-	// 	ft_push_a(a, b);
-	// }
+	while (j <= index.size)
+	{
+		if (index.index[j] == 1)
+		{
+			ft_move_value(j, index, a, b);
+		}
+		j++;
+	}
+	while (b->top_stack != -1)
+	{
+		ft_push_a(a, b);
+	}
 }
 
 void	ft_sort(t_stack *a, t_stack *b)

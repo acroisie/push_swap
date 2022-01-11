@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 13:14:21 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 18:09:54 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,8 @@ typedef struct s_index
 	int	min_value;
 	int	max_value;
 	int	size;
-	int	start_pos;
-	int	end_pos;
+	int	median;
 }t_index;
-
-typedef struct s_range
-{
-	int	i;
-	int	range;
-	int	j;
-	int	mem;
-	int	ref;
-}t_range;
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size);
 void	ft_swap_a(t_stack *a);
@@ -72,7 +62,5 @@ void	ft_range(t_index *index);
 void	ft_search_position(t_stack *a, t_index *index);
 void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index);
 void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b);
-void	ft_find_max_range(t_stack *a, t_index *index);
-void	ft_push_max_range(t_stack *a, t_stack *b, t_index index);
 
 #endif
