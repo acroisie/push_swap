@@ -5,79 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/10 16:56:19 by acroisie         ###   ########lyon.fr   */
+/*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
+/*   Updated: 2022/01/11 13:51:08 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_abs(int value)
+void	ft_push_max_range(t_stack *a, t_stack *b, t_index index)
 {
-	if (value < 0)
-		return (value = value * -1);
-	return (value);
-}
+	int	ref;
+	int	end;
 
-void	ft_range(t_index *index)
-{
-	int	range;
-
-	range = 0;
-	if (index->max_value > 0 && index->min_value < 0)
+	ref = a->stack[index.start_pos];
+	end = a->stack[index.end_pos];
+	while (a->stack[a->top_stack] != ref)
 	{
-		range = index->max_value + ft_abs(index->min_value);
-		index->size = range;
-		return ;
+		ft_push_b(a, b);
 	}
-	range = ft_abs(ft_abs(index->max_value) - ft_abs(index->min_value));
-	index->size = range;
-	return ;
-}
-
-int	ft_min_value(t_stack *a)
-{
-	int	i;
-	int	min_value;
-
-	i = 0;
-	min_value = a->stack[0];
-	while (i < (a->top_stack))
+	while (a->stack[a->top_stack] != end)
 	{
-		if ((a->stack[i]) < min_value)
-			min_value = a->stack[i];
-		i++;
+		ft_rotate_a(a);
+		if (ref < a->stack[a->top_stack])
+		{
+			ref = a->stack[a->top_stack];
+			ft_rotate_a(a);
+		}
+		else
+			ft_push_b(a, b);
 	}
-	return (min_value);
-}
-
-int	ft_max_value(t_stack *a)
-{
-	int	i;
-	int	max_value;
-
-	i = 0;
-	max_value = a->stack[0];
-	while (i < (a->top_stack))
+	ft_rotate_a(a);
+	while (a->stack[a->top_stack] != index.start_pos)
 	{
-		if ((a->stack[i]) > max_value)
-			max_value = a->stack[i];
-		i++;
-	}
-	return (max_value);
-}
-
-void	ft_init_index(t_index *index)
-{
-	int	j;
-
-	ft_range(index);
-	index->index = malloc((ft_abs(index->size) + 1) * sizeof(int));
-	index->max_range_pos = 0;
-	j = 0;
-	while (j <= index->size)
-	{
-		index->index[j] = 0;
-		j++;
+		ft_push_b(a, b);
 	}
 }

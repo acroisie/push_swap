@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/10 18:22:46 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 13:58:13 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,46 +34,43 @@ void	ft_search_position(t_stack *a, t_index *index)
 	}
 }
 
-// void	ft_find_max_range(t_stack *a, t_index *index)
-// {
-// 	int	max_range;
-// 	int	mem;
-// 	int	i;
-// 	int	j;
-// 	int	ref;
+void	ft_find_max_range(t_stack *a, t_index *index)
+{
+	t_range	range;
 
-// 	max_range = 0;
-// 	i = a->top_stack;
-// 	while (i >= 0)
-// 	{
-// 		j = i;
-// 		mem = 0;
-// 		while (j >= 0)
-// 		{
-// 			if (a->stack[j] < a->stack[j - 1])
-// 			{
-// 				mem++;
-// 				ref = a->stack[j];
-// 			}
-// 			j++;
-// 		}
-// 		if (mem >= max_range)
-// 		{
-// 			max_range = mem;
-// 			index->max_range_pos = i;
-// 		}
-// 		i--;
-// 	}
-// }
+	range.i = a->top_stack + 1;
+	range.range = 0;
+	while (range.i-- > 0)
+	{
+		range.j = range.i;
+		range.mem = 0;
+		range.ref = range.i;
+		while (range.j-- > 0)
+		{
+			if (a->stack[range.ref] < a->stack[range.j])
+			{
+				range.mem++;
+				range.ref = range.j;
+			}
+			if (range.mem >= range.range)
+			{
+				range.range = range.mem;
+				index->start_pos = range.i;
+				index->end_pos = (range.i - range.range);
+			}
+		}
+	}
+}
 
 void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 {
-	// ft_find_max_range(a, &index); //To delete
 	int	i;
 	int	k;
 
 	i = 0;
 	k = 0;
+	ft_find_max_range(a, &index); // ****
+	ft_push_max_range(a, b, index); // **** 
 	while ((a->stack[k] != (j + (index.min_value))))
 	{
 		k++;
