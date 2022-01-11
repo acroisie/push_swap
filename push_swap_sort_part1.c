@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 15:13:46 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 16:22:19 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	ft_find_max_range(t_stack *a, t_index *index)
 			{
 				range.range = range.mem;
 				index->start_pos = range.i;
-				index->end_pos = (range.i - range.range);
+				//index->end_pos = (range.i - range.range);
+				index->end_pos = range.j;
 			}
 		}
 	}
@@ -70,6 +71,7 @@ void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 	i = 0;
 	k = 0;
 	ft_find_max_range(a, &index); // ****
+	//dprintf(1,"deb=%d|fin=%d\n", index.start_pos, index.end_pos);
 	ft_push_max_range(a, b, index); // **** 
 	j = j + 0; //To delete
 	// while ((a->stack[k] != (j + (index.min_value))))
