@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 13:58:13 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/11 15:13:46 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,19 @@ void	ft_move_value(int j, t_index index, t_stack *a, t_stack *b)
 	k = 0;
 	ft_find_max_range(a, &index); // ****
 	ft_push_max_range(a, b, index); // **** 
-	while ((a->stack[k] != (j + (index.min_value))))
-	{
-		k++;
-	}
-	while ((a->stack[a->top_stack] != (j + (index.min_value))))
-	{
-		if (k > (index.size / 2))
-			ft_rotate_a(a);
-		else
-			ft_reverse_rotate_a(a);
-	}
-	ft_push_b(a, b);
+	j = j + 0; //To delete
+	// while ((a->stack[k] != (j + (index.min_value))))
+	// {
+	// 	k++;
+	// }
+	// while ((a->stack[a->top_stack] != (j + (index.min_value))))
+	// {
+	// 	if (k > (index.size / 2))
+	// 		ft_rotate_a(a);
+	// 	else
+	// 		ft_reverse_rotate_a(a);
+	// }
+	// ft_push_b(a, b);
 }
 
 void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index)
@@ -90,18 +91,19 @@ void	ft_read_and_sort(t_stack *a, t_stack *b, t_index index)
 	int	j;
 
 	j = 0;
-	while (j <= index.size)
-	{
-		if (index.index[j] == 1)
-		{
-			ft_move_value(j, index, a, b);
-		}
-		j++;
-	}
-	while (b->top_stack != -1)
-	{
-		ft_push_a(a, b);
-	}
+	ft_move_value(j, index, a, b); //To delete
+	// while (j <= index.size)
+	// {
+	// 	if (index.index[j] == 1)
+	// 	{
+	// 		ft_move_value(j, index, a, b);
+	// 	}
+	// 	j++;
+	// }
+	// while (b->top_stack != -1)
+	// {
+	// 	ft_push_a(a, b);
+	// }
 }
 
 void	ft_sort(t_stack *a, t_stack *b)
