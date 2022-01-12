@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 18:25:04 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/12 12:07:07 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_min_value(t_stack *a)
 
 	i = 0;
 	min_value = a->stack[0];
-	while (i < (a->top_stack))
+	while (i <= (a->top_stack))
 	{
 		if ((a->stack[i]) < min_value)
 			min_value = a->stack[i];
@@ -58,7 +58,7 @@ int	ft_max_value(t_stack *a)
 
 	i = 0;
 	max_value = a->stack[0];
-	while (i < (a->top_stack))
+	while (i <= (a->top_stack))
 	{
 		if ((a->stack[i]) > max_value)
 			max_value = a->stack[i];

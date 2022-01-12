@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/11 15:12:03 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/12 10:00:39 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 
 	ft_arg_parse_and_fill(&a, &b, argc, argv);
 	// ft_display(a); //To delete
-	ft_sort(&a, &b);
+	ft_push_swap(&a, &b);
 	// ft_display(a); //To delete
 	return (0);
 }
