@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/12 18:08:09 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/13 09:49:02 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ typedef struct s_index
 	int	size;
 	int	median;
 }t_index;
+
+typedef struct s_chunck
+{
+	int	i;
+	int	j;
+	int	k;
+	int	min;
+	int	max;
+}t_chunck;
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size);
 void	ft_swap_a(t_stack *a);
@@ -65,5 +74,6 @@ void	ft_median(t_index *index);
 void	ft_push_smaller(t_stack *a, t_stack *b, t_index index);
 void	ft_push_greater(t_stack *a, t_stack *b, t_index index);
 void	ft_return_from_chunk(t_stack *a, t_stack *b);
+void	ft_chunck_init(t_chunck *chunck, t_stack *b);
 
 #endif
