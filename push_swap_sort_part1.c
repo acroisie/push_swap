@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/12 18:07:53 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/13 10:53:55 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_median(t_index *index)
 
 	i = -1;
 	count = 0;
-	while (i++ <= index->size)
+	while (i++ < index->size)
 	{
 		if (index->index[i])
 			count++;
@@ -29,7 +29,7 @@ void	ft_median(t_index *index)
 	tab = malloc((count + 1) * sizeof(int));
 	i = -1;
 	j = 0;
-	while (i++ <= index->size)
+	while (i++ < index->size)
 	{
 		if (index->index[i])
 		{
@@ -69,6 +69,13 @@ void	ft_sort(t_stack *a, t_stack *b, t_index index)
 	ft_push_smaller(a, b, index);
 	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
+	while (a->stack[a->top_stack] != index.min_value)
+		ft_reverse_rotate_a(a);
+	ft_push_greater(a, b, index);
+	while (b->top_stack != -1)
+		ft_return_from_chunk(a, b);
+	while (a->stack[a->top_stack] != index.min_value)
+		ft_reverse_rotate_a(a);
 }
 
 void	ft_push_swap(t_stack *a, t_stack *b)
