@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/13 11:27:25 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/14 15:28:49 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_push_greater(t_stack *a, t_stack *b, t_index index)
 		if (a->stack[a->top_stack] >= index.median)
 			ft_push_b(a, b);
 		else
-			ft_rotate_a(a);
+			ft_reverse_rotate_a(a);
 		j--;
 	}
 }
