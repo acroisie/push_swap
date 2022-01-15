@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/14 15:50:09 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/15 16:04:23 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ void	ft_smart_move(t_stack *a, t_index index)
 	i = a->top_stack;
 	j = 0;
 	k = 0;
-	while (!((a->stack[i] == index.min_value)
-			|| (a->stack[i] == index.max_value)))
+	while (a->stack[i] != index.min_value)
 	{
 		i--;
 		j++;
 	}
-	while (!((a->stack[i] == index.min_value)
-			|| (a->stack[i] == index.max_value)))
+	while (a->stack[k] != index.min_value)
 		k++;
 	if (j <= k)
-		while (!((a->stack[a->top_stack] == index.min_value)
-				|| (a->stack[a->top_stack] == index.max_value)))
+		while (a->stack[a->top_stack] != index.min_value)
 			ft_rotate_a(a);
 	else
-		while (!((a->stack[a->top_stack] == index.min_value)
-				|| (a->stack[a->top_stack] == index.max_value)))
+		while (a->stack[a->top_stack] != index.min_value)
 			ft_reverse_rotate_a(a);
 }
 
