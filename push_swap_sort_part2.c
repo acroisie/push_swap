@@ -6,11 +6,46 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/14 15:28:49 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/23 17:05:26 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index)
+{
+	ft_push_smaller(a, b, index);
+	while (b->top_stack != -1)
+		ft_return_from_chunk(a, b);
+	ft_smart_move(a, index);
+	ft_push_greater(a, b, index);
+	while (b->top_stack != -1)
+		ft_return_from_chunk(a, b);
+	ft_smart_move(a, index);
+}
+
+void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index)
+{
+	int	last_median;
+	int	i;
+
+	i = 4;
+	ft_median(&index, i);
+	ft_push_smaller(a, b, index);
+	ft_return_from_chunk(a, b);
+	while (i > 0)
+	{
+		last_median = index.median;
+		ft_median(&index, i);
+		ft_push_between(a, b, index, last_median);
+		ft_return_from_chunk(a, b);
+		ft_smart_move(a, index);
+		i--;
+	}
+	ft_median(&index, i);
+	ft_push_greater(a, b, index);
+	ft_return_from_chunk(a, b);
+}
 
 void	ft_chunck_init(t_chunck *chunck, t_stack *b)
 {
@@ -19,36 +54,6 @@ void	ft_chunck_init(t_chunck *chunck, t_stack *b)
 	chunck->k = 0;
 	chunck->min = ft_min_value(b);
 	chunck->max = ft_max_value(b);
-}
-
-void	ft_push_smaller(t_stack *a, t_stack *b, t_index index)
-{
-	int	j;
-
-	j = a->top_stack;
-	while (j >= 0)
-	{
-		if (a->stack[a->top_stack] < index.median)
-			ft_push_b(a, b);
-		else
-			ft_rotate_a(a);
-		j--;
-	}
-}
-
-void	ft_push_greater(t_stack *a, t_stack *b, t_index index)
-{
-	int	j;
-
-	j = a->top_stack;
-	while (j >= 0)
-	{
-		if (a->stack[a->top_stack] >= index.median)
-			ft_push_b(a, b);
-		else
-			ft_reverse_rotate_a(a);
-		j--;
-	}
 }
 
 void	ft_return_from_chunk(t_stack *a, t_stack *b)

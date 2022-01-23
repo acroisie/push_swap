@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/15 16:04:23 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/19 11:08:29 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_smart_move(t_stack *a, t_index index)
 			ft_reverse_rotate_a(a);
 }
 
-void	ft_median(t_index *index)
+void	ft_median(t_index *index, int divider)
 {
 	int	i;
 	int	j;
@@ -61,7 +61,7 @@ void	ft_median(t_index *index)
 			j++;
 		}
 	}
-	index->median = (tab[j / 2]);
+	index->median = (tab[j / divider]);
 	free(tab);
 }
 
@@ -85,23 +85,15 @@ void	ft_search_position(t_stack *a, t_index *index)
 		}
 		k++;
 	}
-	ft_median(index);
+	ft_median(index, 2);
 }
 
 void	ft_sort(t_stack *a, t_stack *b, t_index index)
 {
-	ft_push_smaller(a, b, index);
-	while (b->top_stack != -1)
-		ft_return_from_chunk(a, b);
-	ft_smart_move(a, index);
-	// while (a->stack[a->top_stack] != index.min_value)
-	// 	ft_reverse_rotate_a(a);
-	ft_push_greater(a, b, index);
-	while (b->top_stack != -1)
-		ft_return_from_chunk(a, b);
-	ft_smart_move(a, index);
-	// while (a->stack[a->top_stack] != index.min_value)
-	// 	ft_reverse_rotate_a(a);
+	if (a->top_stack <= 100)
+		ft_sort_hundred(a, b, index);
+	if (a->top_stack > 100)
+		ft_sort_fives_hundred(a, b, index);
 }
 
 void	ft_push_swap(t_stack *a, t_stack *b)
