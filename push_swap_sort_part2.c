@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/23 17:05:26 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 10:24:34 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,42 @@
 
 void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index)
 {
+	ft_median(&index, 1, 2);
 	ft_push_smaller(a, b, index);
 	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
-	ft_smart_move(a, index);
+	ft_smart_move(a, index.min_value);
 	ft_push_greater(a, b, index);
 	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
-	ft_smart_move(a, index);
+	ft_smart_move(a, index.min_value);
 }
 
 void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index)
 {
 	int	last_median;
-	int	i;
+	int	divider;
+	int	quotient;
 
-	i = 4;
-	ft_median(&index, i);
-	ft_push_smaller(a, b, index);
-	ft_return_from_chunk(a, b);
-	while (i > 0)
-	{
-		last_median = index.median;
-		ft_median(&index, i);
-		ft_push_between(a, b, index, last_median);
+	divider = 5;
+	quotient = 1;
+	ft_median(&index, quotient, divider);
+	ft_push_between(a, b, index, index.min_value);
+	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
-		ft_smart_move(a, index);
-		i--;
+	while (quotient < divider)
+	{
+		quotient++;
+		last_median = index.median;
+		ft_median(&index, quotient, divider);
+		ft_push_between(a, b, index, last_median);
+		ft_smart_move(a, last_median);
+		ft_rotate_a(a);
+		while (b->top_stack != -1)
+			ft_return_from_chunk(a, b);
 	}
-	ft_median(&index, i);
-	ft_push_greater(a, b, index);
-	ft_return_from_chunk(a, b);
+	ft_smart_move(a, index.min_value);
+
 }
 
 void	ft_chunck_init(t_chunck *chunck, t_stack *b)

@@ -6,13 +6,13 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/19 11:08:29 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 10:03:47 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_smart_move(t_stack *a, t_index index)
+void	ft_smart_move(t_stack *a, int value)
 {
 	int	i;
 	int	j;
@@ -21,22 +21,22 @@ void	ft_smart_move(t_stack *a, t_index index)
 	i = a->top_stack;
 	j = 0;
 	k = 0;
-	while (a->stack[i] != index.min_value)
+	while (a->stack[i] != value)
 	{
 		i--;
 		j++;
 	}
-	while (a->stack[k] != index.min_value)
+	while (a->stack[k] != value)
 		k++;
 	if (j <= k)
-		while (a->stack[a->top_stack] != index.min_value)
+		while (a->stack[a->top_stack] != value)
 			ft_rotate_a(a);
 	else
-		while (a->stack[a->top_stack] != index.min_value)
+		while (a->stack[a->top_stack] != value)
 			ft_reverse_rotate_a(a);
 }
 
-void	ft_median(t_index *index, int divider)
+void	ft_median(t_index *index, int quotient, int divider)
 {
 	int	i;
 	int	j;
@@ -46,22 +46,15 @@ void	ft_median(t_index *index, int divider)
 	i = -1;
 	count = 0;
 	while (i++ < index->size)
-	{
 		if (index->index[i])
 			count++;
-	}
-	tab = malloc((count + 1) * sizeof(int));
+	tab = malloc((count + 1) * sizeof(int));// Malloc to protect
 	i = -1;
-	j = 0;
+	j = -1;
 	while (i++ < index->size)
-	{
 		if (index->index[i])
-		{
-			tab[j] = (i + index->min_value);
-			j++;
-		}
-	}
-	index->median = (tab[j / divider]);
+			tab[j++] = (i + index->min_value);
+	index->median = (tab[(j * quotient) / divider]);
 	free(tab);
 }
 
@@ -85,7 +78,7 @@ void	ft_search_position(t_stack *a, t_index *index)
 		}
 		k++;
 	}
-	ft_median(index, 2);
+	// ft_median(index, 2);
 }
 
 void	ft_sort(t_stack *a, t_stack *b, t_index index)

@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/23 16:42:15 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 10:00:09 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int		ft_abs(int value);
 void	ft_range(t_index *index);
 void	ft_search_position(t_stack *a, t_index *index);
 void	ft_sort(t_stack *a, t_stack *b, t_index index);
-void	ft_median(t_index *index, int divider);
+void	ft_median(t_index *index, int quotient, int divider);
 void	ft_push_smaller(t_stack *a, t_stack *b, t_index index);
 void	ft_push_greater(t_stack *a, t_stack *b, t_index index);
 void	ft_return_from_chunk(t_stack *a, t_stack *b);
 void	ft_chunck_init(t_chunck *chunck, t_stack *b);
-void	ft_smart_move(t_stack *a, t_index index);
+void	ft_smart_move(t_stack *a, int value);
 void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index);
 void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index);
 void	ft_push_between(t_stack *a, t_stack *b, t_index index, int last_median);
