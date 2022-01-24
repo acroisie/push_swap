@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/24 10:03:47 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 17:55:22 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_median(t_index *index, int quotient, int divider)
 	while (i++ < index->size)
 		if (index->index[i])
 			count++;
-	tab = malloc((count + 1) * sizeof(int));// Malloc to protect
+	tab = malloc((count + 100) * sizeof(int)); // Malloc to protect
 	i = -1;
 	j = -1;
 	while (i++ < index->size)
@@ -78,7 +78,6 @@ void	ft_search_position(t_stack *a, t_index *index)
 		}
 		k++;
 	}
-	// ft_median(index, 2);
 }
 
 void	ft_sort(t_stack *a, t_stack *b, t_index index)
