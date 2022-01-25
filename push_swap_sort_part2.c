@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 11:44:58 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 14:29:11 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,25 @@ void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index)
 
 void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index)
 {
-	int	quotient;
-	int	divider;
-	int	last_median;
+	t_median	median;
 
-	quotient = 1;
-	divider = 5;
-	ft_median(&index, quotient, divider);
+	median.quotient = 1;
+	median.divider = 5;
+	ft_median(&index, median.quotient, median.divider);
 	ft_push_between(a, b, index, index.min_value);
 	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
-	while (quotient < (divider - 1))
+	while (median.quotient < (median.divider - 1))
 	{
-		last_median = index.median;
-		quotient++;
-		ft_median(&index, quotient, divider);
-		ft_push_between(a, b, index, last_median);
+		median.last_median = index.median;
+		median.quotient++;
+		ft_median(&index, median.quotient, median.divider);
+		ft_push_between(a, b, index, median.last_median);
 		ft_smart_move(a, index.min_value);
 		while (b->top_stack != -1)
 			ft_return_from_chunk(a, b);
 	}
-	ft_median(&index, quotient, divider);
+	ft_median(&index, median.quotient, median.divider);
 	ft_push_greater(a, b, index);
 	ft_smart_move(a, index.min_value);
 	while (b->top_stack != -1)

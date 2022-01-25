@@ -6,11 +6,33 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 13:39:34 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 17:00:53 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_check_already_sort(t_stack *a, t_index *index)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = a->top_stack;
+	j = 0;
+	k = 0;
+	while (i > 0)
+	{
+		if (a->stack[i] == index->index[j])
+			k++;
+		i--;
+		j++;
+	}
+	if (k == a->top_stack)
+	{
+		exit (0);
+	}
+}
 
 void	ft_smart_move(t_stack *a, int value)
 {
@@ -54,6 +76,7 @@ void	ft_push_swap(t_stack *a, t_stack *b)
 	t_index	index;
 
 	ft_init_index(&index, a);
+	ft_check_already_sort(a, &index);
 	ft_sort(a, b, index);
 	free(index.index);
 }

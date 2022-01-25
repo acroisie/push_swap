@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 13:40:06 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 17:05:37 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "libft/libft.h"
-#include <stdio.h> //To delete
 
 typedef struct s_stack
 {
@@ -44,6 +43,13 @@ typedef struct s_chunck
 	int	min;
 	int	max;
 }t_chunck;
+
+typedef struct s_median
+{
+	int	quotient;
+	int	divider;
+	int	last_median;
+}t_median;
 
 void	ft_init_stack(t_stack *a, t_stack *b, int size);
 void	ft_swap_a(t_stack *a);
@@ -78,5 +84,6 @@ void	ft_smart_move(t_stack *a, int value);
 void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index);
 void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index);
 void	ft_push_between(t_stack *a, t_stack *b, t_index index, int last_median);
+void	ft_check_already_sort(t_stack *a, t_index *index);
 
 #endif

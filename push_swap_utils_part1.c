@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:54:40 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/14 11:46:21 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 15:27:01 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,20 @@ void	ft_arg_parse_and_fill(t_stack *a, t_stack *b, int argc, char **argv)
 	char	*line;
 	char	**tab;
 	int		size;
+	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
 	line = ft_join_args(argv, argc);
+	while (line[i])
+	{
+		if (' ' == line[i])
+			j++;
+		i++;
+	}
+	if (i == j)
+		ft_display_error();
 	tab = ft_split(line, ' ');
 	free(line);
 	size = ft_errors_check(tab);

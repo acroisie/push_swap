@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 09:01:01 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 14:50:44 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	ft_arg_parse_and_fill(&a, &b, argc, argv);
-	ft_push_swap(&a, &b);
-	free(a.stack);
-	free(b.stack);
+	if (argc > 1)
+	{
+		ft_arg_parse_and_fill(&a, &b, argc, argv);
+		ft_push_swap(&a, &b);
+		free(a.stack);
+		free(b.stack);
+		return (0);
+	}
 	return (0);
 }
