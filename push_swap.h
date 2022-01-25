@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 09:51:10 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 13:40:06 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,6 @@ int		ft_max_value(t_stack *a);
 void	*ft_init_index(t_index *index, t_stack *a);
 void	ft_bubble_sort(t_index *index);
 void	ft_swap_index(t_index *index, int j);
-int		ft_abs(int value);
-void	ft_range(t_index *index);
-void	ft_search_position(t_stack *a, t_index *index);
 void	ft_sort(t_stack *a, t_stack *b, t_index index);
 void	ft_median(t_index *index, int quotient, int divider);
 void	ft_push_smaller(t_stack *a, t_stack *b, t_index index);

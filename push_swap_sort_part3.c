@@ -6,34 +6,11 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 10:12:08 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 13:40:13 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	ft_abs(int value)
-// {
-// 	if (value < 0)
-// 		return (value = value * -1);
-// 	return (value);
-// }
-
-// void	ft_range(t_index *index)
-// {
-// 	int	range;
-
-// 	range = 0;
-// 	if (index->max_value > 0 && index->min_value < 0)
-// 	{
-// 		range = index->max_value + ft_abs(index->min_value);
-// 		index->size = range;
-// 		return ;
-// 	}
-// 	range = ft_abs(ft_abs(index->max_value) - ft_abs(index->min_value));
-// 	index->size = range;
-// 	return ;
-// }
 
 void	ft_swap_index(t_index *index, int j)
 {
@@ -52,7 +29,7 @@ void	ft_bubble_sort(t_index *index)
 
 	i = 0;
 	mem = index->min_value;
-	while (i < index->size)
+	while (i <= index->size)
 	{
 		j = 0;
 		while (j < index->size)
@@ -115,12 +92,4 @@ void	*ft_init_index(t_index *index, t_stack *a)
 	}
 	ft_bubble_sort(index);
 	return (index->index);
-	// ft_range(index);
-	// index->index = malloc((ft_abs(index->size) + 1) * sizeof(int));
-	// j = 0;
-	// while (j <= index->size)
-	// {
-	// 	index->index[j] = 0;
-	// 	j++;
-	// }
 }

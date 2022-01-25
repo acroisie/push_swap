@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/24 17:04:31 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 11:44:58 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index)
 	ft_push_between(a, b, index, index.min_value);
 	while (b->top_stack != -1)
 		ft_return_from_chunk(a, b);
-	while (quotient < divider)
+	while (quotient < (divider - 1))
 	{
 		last_median = index.median;
 		quotient++;
@@ -47,7 +47,6 @@ void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index)
 		while (b->top_stack != -1)
 			ft_return_from_chunk(a, b);
 	}
-	quotient--;
 	ft_median(&index, quotient, divider);
 	ft_push_greater(a, b, index);
 	ft_smart_move(a, index.min_value);
