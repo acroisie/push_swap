@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:19:11 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 17:05:37 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:00:26 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	ft_chunck_init(t_chunck *chunck, t_stack *b);
 void	ft_smart_move(t_stack *a, int value);
 void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index);
 void	ft_sort_fives_hundred(t_stack *a, t_stack *b, t_index index);
+void	ft_sort_three(t_stack *a, t_index index);
+void	ft_sort_five(t_stack *a, t_stack *b, t_index *index);
 void	ft_push_between(t_stack *a, t_stack *b, t_index index, int last_median);
 void	ft_check_already_sort(t_stack *a, t_index *index);
 

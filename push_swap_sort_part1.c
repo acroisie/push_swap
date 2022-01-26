@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 17:00:53 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 13:56:20 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,13 @@ void	ft_median(t_index *index, int quotient, int divider)
 
 void	ft_sort(t_stack *a, t_stack *b, t_index index)
 {
-	if (a->top_stack <= 100)
+	if (a->top_stack < 3)
+		ft_sort_three(a, index);
+	else if (a->top_stack < 5)
+		ft_sort_five(a, b, &index);
+	else if (a->top_stack < 100 && a->top_stack < 5)
 		ft_sort_hundred(a, b, index);
-	if (a->top_stack > 100)
+	else if (a->top_stack >= 100)
 		ft_sort_fives_hundred(a, b, index);
 }
 

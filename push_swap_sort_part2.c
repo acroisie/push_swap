@@ -6,11 +6,31 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:53:36 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 14:29:11 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 10:47:08 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort_three(t_stack *a, t_index index)
+{
+	if ((a->stack[0] == index.max_value) && (a->stack[1] == index.min_value))
+		ft_swap_a(a);
+	if ((a->stack[2] == index.max_value) && (a->stack[0] == index.min_value))
+	{
+		ft_swap_a(a);
+		ft_reverse_rotate_a(a);
+	}
+	if ((a->stack[2] == index.max_value) && (a->stack[1] == index.min_value))
+		ft_rotate_a(a);
+	if ((a->stack[1] == index.max_value) && (a->stack[2] == index.min_value))
+	{
+		ft_swap_a(a);
+		ft_rotate_a(a);
+	}
+	if ((a->stack[1] == index.max_value) && (a->stack[0] == index.min_value))
+		ft_reverse_rotate_a(a);
+}
 
 void	ft_sort_hundred(t_stack *a, t_stack *b, t_index index)
 {
