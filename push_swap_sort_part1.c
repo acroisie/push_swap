@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 08:06:25 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/26 13:56:20 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 17:07:15 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_sort(t_stack *a, t_stack *b, t_index index)
 		ft_sort_three(a, index);
 	else if (a->top_stack < 5)
 		ft_sort_five(a, b, &index);
-	else if (a->top_stack < 100 && a->top_stack < 5)
+	else if (a->top_stack < 100 && a->top_stack >= 5)
 		ft_sort_hundred(a, b, index);
 	else if (a->top_stack >= 100)
 		ft_sort_fives_hundred(a, b, index);
