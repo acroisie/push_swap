@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:34:33 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/26 13:57:35 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:20:23 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,11 @@ void	ft_sort_five(t_stack *a, t_stack *b, t_index *index)
 		}
 		else if (b->stack[b->top_stack] > a->stack[a->top_stack]
 			&& b->stack[b->top_stack] < a->stack[a->top_stack - 1])
-		{
-			ft_push_a(a, b);
-			ft_swap_a(a);
-		}
+			ft_sort_five_group3(a, b);
 		else if (a->top_stack == 3 && b->stack[b->top_stack] > a->stack[2]
 			&& b->stack[b->top_stack] < a->stack[1])
-		{
-			ft_rotate_a(a);
-			ft_push_a(a, b);
-			ft_swap_a(a);
-			ft_reverse_rotate_a(a);
-		}
+			ft_sort_five_group4(a, b);
 		else
-		{
-			ft_reverse_rotate_a(a);
-			ft_push_a(a, b);
-			ft_rotate_a(a);
-			ft_rotate_a(a);
-		}
+			ft_sort_five_group5(a, b);
 	}
 }
