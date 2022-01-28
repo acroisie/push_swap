@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 13:40:13 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 17:30:12 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_max_value(t_stack *a)
 	return (max_value);
 }
 
-void	*ft_init_index(t_index *index, t_stack *a)
+void	*ft_init_index(t_index *index, t_stack *a, t_stack *b)
 {
 	int	j;
 
@@ -83,8 +83,12 @@ void	*ft_init_index(t_index *index, t_stack *a)
 	index->max_value = ft_max_value(a);
 	index->size = a->top_stack;
 	index->index = malloc((index->size + 1) * sizeof(int));
-	if (index->index == NULL)
-		return (NULL);
+	if (!index->index)
+	{
+		free(a);
+		free(b);
+		exit (0);
+	}
 	while (j <= index->size)
 	{
 		index->index[j] = a->stack[j];

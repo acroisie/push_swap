@@ -6,7 +6,7 @@
 #    By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 14:27:04 by acroisie          #+#    #+#              #
-#    Updated: 2022/01/26 16:32:34 by acroisie         ###   ########lyon.fr    #
+#    Updated: 2022/01/28 16:52:46 by acroisie         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,14 @@ SRCS =	main.c \
 		push_swap_sort_part5.c \
 		push_swap_utils_part1.c \
 		push_swap_utils_part2.c \
+		push_swap_utils_part3.c \
 		sort_commands_part1.c \
 		sort_commands_part2.c \
 		sort_commands_part3.c
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 LIB_SRCS = $(addprefix libft/,$(LIB))
 
