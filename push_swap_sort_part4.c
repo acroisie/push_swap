@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:34:33 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/26 14:20:23 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 08:15:44 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	ft_push_greater(t_stack *a, t_stack *b, t_index index)
 
 void	ft_sort_five(t_stack *a, t_stack *b, t_index *index)
 {
-	ft_push_b(a, b);
+	if (a->top_stack >= 4)
+		ft_push_b(a, b);
 	ft_push_b(a, b);
 	index->min_value = ft_min_value(a);
 	index->max_value = ft_max_value(a);
