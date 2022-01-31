@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:54:40 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/28 17:14:10 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 11:36:14 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,12 @@ char	*ft_join_args(char **argv, int argc)
 	{
 		temp = ft_strjoin(argv[i], " ");
 		if (!temp)
+		{
+			free(line);
 			exit (0);
+		}
 		line = ft_strjoin_free_s1(line, temp);
+		free(temp);
 		if (!line)
 		{
 			free(temp);
