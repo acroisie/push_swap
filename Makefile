@@ -6,7 +6,7 @@
 #    By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 14:27:04 by acroisie          #+#    #+#              #
-#    Updated: 2022/01/28 16:52:46 by acroisie         ###   ########lyon.fr    #
+#    Updated: 2022/01/31 09:24:52 by acroisie         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =	main.c \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 LIB_SRCS = $(addprefix libft/,$(LIB))
 
