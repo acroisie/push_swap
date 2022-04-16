@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:44:51 by acroisie          #+#    #+#             */
-/*   Updated: 2021/12/29 11:40:00 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 16:45:04 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_check_is_digit(char **tab)
 		{
 			if (!ft_isdigit(tab[i][j]))
 			{
-				if (!(tab[i][j] == '-' && ft_isdigit(tab[i][j + 1])))
+				if (!((tab[i][j] == '-' && ft_isdigit(tab[i][j + 1]))
+					|| (tab[i][j] == '+' && ft_isdigit(tab[i][j + 1]))))
 					ft_display_error();
 			}
 			j++;
@@ -40,20 +41,23 @@ void	ft_check_is_digit(char **tab)
 	}
 }
 
-void	ft_check_duplicate(char **tab)
+void	ft_check_duplicate(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (tab[i])
+	while (i < a->top_stack)
 	{
 		j = i + 1;
-		while (tab[j])
+		while (j <= a->top_stack)
 		{
-			if (!ft_strncmp(tab[i], tab[j],
-					(ft_strlen(tab[i]) + ft_strlen(tab[j]))))
+			if (a->stack[i] == a->stack[j])
+			{
+				free(a->stack);
+				free(b->stack);
 				ft_display_error();
+			}
 			j++;
 		}
 		i++;
@@ -66,7 +70,6 @@ int	ft_errors_check(char **tab)
 
 	i = 0;
 	ft_check_is_digit(tab);
-	ft_check_duplicate(tab);
 	while (tab[i])
 	{
 		ft_check_limits(tab[i]);
@@ -78,6 +81,8 @@ int	ft_errors_check(char **tab)
 void	ft_check_limits(char *nb)
 {
 	if (!ft_strncmp(nb, "0", ft_strlen(nb))
+		|| !ft_strncmp(nb, "-0", ft_strlen(nb))
+		|| !ft_strncmp(nb, "+0", ft_strlen(nb))
 		|| !ft_strncmp(nb, "-1", ft_strlen(nb)))
 		return ;
 	if (ft_atoi(nb) == 0 || ft_atoi(nb) == (-1))

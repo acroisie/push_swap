@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_utils_part3.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 14:16:00 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/25 14:50:44 by acroisie         ###   ########lyon.fr   */
+/*   Created: 2022/01/28 16:45:17 by acroisie          #+#    #+#             */
+/*   Updated: 2022/01/28 16:48:29 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_line_isspace(char *line)
 {
-	t_stack	a;
-	t_stack	b;
+	int	i;
+	int	j;
 
-	if (argc > 1)
+	i = 0;
+	j = 0;
+	if (!line)
+		exit (0);
+	while (line[i])
 	{
-		ft_arg_parse_and_fill(&a, &b, argc, argv);
-		ft_push_swap(&a, &b);
-		free(a.stack);
-		free(b.stack);
-		return (0);
+		if (' ' == line[i])
+			j++;
+		i++;
 	}
-	return (0);
+	if (i == j)
+	{
+		free(line);
+		ft_display_error();
+	}
 }
