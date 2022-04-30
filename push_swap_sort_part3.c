@@ -6,7 +6,7 @@
 /*   By: acroisie <acroisie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:36:48 by acroisie          #+#    #+#             */
-/*   Updated: 2022/01/27 17:30:12 by acroisie         ###   ########lyon.fr   */
+/*   Updated: 2022/04/30 15:23:21 by acroisie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void	ft_bubble_sort(t_index *index)
 {
 	int	i;
 	int	j;
-	int	mem;
 
 	i = 0;
-	mem = index->min_value;
 	while (i <= index->size)
 	{
 		j = 0;
